@@ -2,7 +2,7 @@
  * @Author: yehuozhili
  * @Date: 2021-06-29 11:14:15
  * @LastEditors: yehuozhili
- * @LastEditTime: 2021-07-01 12:12:13
+ * @LastEditTime: 2021-07-01 12:34:15
  * @FilePath: \my-app\svelte.config.js
  */
 import preprocess from 'svelte-preprocess';
@@ -24,7 +24,6 @@ const config = {
 		paths: {
 			base: '/svelte-kit-markdown'
 		},
-		ssr: false,
 		trailingSlash: 'ignore'
 	}
 };
