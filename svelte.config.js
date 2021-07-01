@@ -2,7 +2,7 @@
  * @Author: yehuozhili
  * @Date: 2021-06-29 11:14:15
  * @LastEditors: yehuozhili
- * @LastEditTime: 2021-07-01 11:47:04
+ * @LastEditTime: 2021-07-01 11:57:57
  * @FilePath: \my-app\svelte.config.js
  */
 import preprocess from 'svelte-preprocess';
@@ -20,11 +20,11 @@ const config = {
 		adapter: staticAdapter({
 			pages: 'build',
 			assets: 'build',
-			paths: {
-				base: '.'
-			},
 			ssr: false
-		})
+		}),
+		paths: {
+			base: '/svelte-kit-markdown'
+		}
 	}
 };
 
