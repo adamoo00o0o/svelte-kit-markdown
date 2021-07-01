@@ -2,27 +2,31 @@
  * @Author: yehuozhili
  * @Date: 2021-06-30 19:09:39
  * @LastEditors: yehuozhili
- * @LastEditTime: 2021-06-30 19:47:44
+ * @LastEditTime: 2021-07-01 10:20:59
  * @FilePath: \my-app\src\utils\markdown.ts
  */
 import * as fleece from 'golden-fleece';
 
 export function extract_frontmatter(markdown) {
 	const match = /---\r?\n([\s\S]+?)\r?\n---/.exec(markdown);
-	const frontMatter = match[1];
-	const content = markdown.slice(match[0].length);
+	let content = '';
+	let metadata: Record<string, string> = {};
+	if (match) {
+		const frontMatter = match[1];
+		content = markdown.slice(match[0].length);
 
-	const metadata: Record<string, string> = {};
-	frontMatter.split('\n').forEach((pair) => {
-		// split on the colon
-		const colonIndex = pair.indexOf(':');
-		let value = pair.slice(colonIndex + 1).trim();
-		// if surrounded by double quotes then remove those quotes
-		if (value && value.charAt(0) === '"' && value.charAt(value.length - 1) === '"') {
-			value = value.substring(1, value.length - 1);
-		}
-		metadata[pair.slice(0, colonIndex).trim()] = value;
-	});
+		metadata = {};
+		frontMatter.split('\n').forEach((pair) => {
+			// split on the colon
+			const colonIndex = pair.indexOf(':');
+			let value = pair.slice(colonIndex + 1).trim();
+			// if surrounded by double quotes then remove those quotes
+			if (value && value.charAt(0) === '"' && value.charAt(value.length - 1) === '"') {
+				value = value.substring(1, value.length - 1);
+			}
+			metadata[pair.slice(0, colonIndex).trim()] = value;
+		});
+	}
 
 	return { metadata, content };
 }

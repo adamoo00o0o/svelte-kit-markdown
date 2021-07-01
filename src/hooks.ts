@@ -1,3 +1,10 @@
+/*
+ * @Author: yehuozhili
+ * @Date: 2021-06-29 11:14:15
+ * @LastEditors: yehuozhili
+ * @LastEditTime: 2021-07-01 10:13:37
+ * @FilePath: \my-app\src\hooks.ts
+ */
 import cookie from 'cookie';
 import { v4 as uuid } from '@lukeed/uuid';
 import type { Handle } from '@sveltejs/kit';
@@ -20,3 +27,17 @@ export const handle: Handle = async ({ request, resolve }) => {
 
 	return response;
 };
+/** @type {import('@sveltejs/kit').ServerFetch} */
+export async function serverFetch(request) {
+	/*
+	if (request.url.startsWith('https://api.yourapp.com/')) {
+	  // clone the original request, but change the URL
+	  request = new Request(
+		request.url.replace('https://api.yourapp.com/', 'http://localhost:9999/'),
+		request
+	  );
+	}
+	*/
+
+	return fetch(request);
+}
