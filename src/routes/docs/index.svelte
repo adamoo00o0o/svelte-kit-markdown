@@ -20,6 +20,7 @@
 </script>
 
 <script lang="ts">
+	import './prism.css';
 	export let sections: MarkDownItemProps[];
 </script>
 

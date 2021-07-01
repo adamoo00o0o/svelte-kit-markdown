@@ -18,8 +18,6 @@
 				<img src="svelte-welcome.png" alt="Welcome" />
 			</picture>
 		</div>
-
-		to your new<br />SvelteKit app
 	</h1>
 
 	<h2>
