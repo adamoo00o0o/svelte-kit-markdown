@@ -2,7 +2,7 @@
  * @Author: yehuozhili
  * @Date: 2021-06-29 11:14:15
  * @LastEditors: yehuozhili
- * @LastEditTime: 2021-07-01 10:22:51
+ * @LastEditTime: 2021-07-01 11:47:04
  * @FilePath: \my-app\svelte.config.js
  */
 import preprocess from 'svelte-preprocess';
@@ -17,7 +17,14 @@ const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
-		adapter: staticAdapter()
+		adapter: staticAdapter({
+			pages: 'build',
+			assets: 'build',
+			paths: {
+				base: '.'
+			},
+			ssr: false
+		})
 	}
 };
 
