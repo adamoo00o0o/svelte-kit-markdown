@@ -8,7 +8,8 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "prettier --check --plugin-search-dir=. .",
-		"format": "prettier --write --plugin-search-dir=. ."
+		"format": "prettier --write --plugin-search-dir=. .",
+		"create-nojekyll": "cat /dev/null > ./build/.nojekyll"
 	},
 	"devDependencies": {
 		"@sveltejs/kit": "next",
