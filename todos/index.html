@@ -13,13 +13,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="/prism.css" rel="stylesheet" />
 
-		
+		<title>Todos</title>
 
 		
 
 		<link rel="modulepreload" href="/svelte-kit-markdown/_app/start-480dbb99.js">
 		<link rel="modulepreload" href="/svelte-kit-markdown/_app/chunks/vendor-be40cf64.js">
+		<link rel="modulepreload" href="/svelte-kit-markdown/_app/pages/__layout.svelte-04ffcc77.js">
+		<link rel="modulepreload" href="/svelte-kit-markdown/_app/pages/todos/index.svelte-6b64bee9.js">
 		<link rel="stylesheet" href="/svelte-kit-markdown/_app/assets/start-a8cd1609.css">
+		<link rel="stylesheet" href="/svelte-kit-markdown/_app/assets/pages/__layout.svelte-41f514ac.css">
+		<link rel="stylesheet" href="/svelte-kit-markdown/_app/assets/pages/todos/index.svelte-ef0435f2.css">
 
 		<script type="module">
 			import { start } from "/svelte-kit-markdown/_app/start-480dbb99.js";
@@ -29,14 +33,53 @@
 				session: {},
 				host: location.host,
 				route: true,
-				spa: true,
+				spa: false,
 				trailing_slash: "ignore",
-				hydrate: null
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/svelte-kit-markdown/_app/pages/__layout.svelte-04ffcc77.js"),
+						import("/svelte-kit-markdown/_app/pages/todos/index.svelte-6b64bee9.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/todos",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
 			});
 		</script>
 	</head>
 	<body>
 		<div id="svelte">
+
+
+<header class="svelte-1twf6mk"><div class="corner svelte-1twf6mk"><a href="https://kit.svelte.dev" class="svelte-1twf6mk"><img src="/svelte-kit-markdown/_app/assets/svelte-logo.87df40b8.svg" alt="SvelteKit" class="svelte-1twf6mk"></a></div>
+
+	<nav class="svelte-1twf6mk"><svg viewBox="0 0 2 3" aria-hidden="true" class="svelte-1twf6mk"><path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" class="svelte-1twf6mk"></path></svg>
+<ul class="svelte-1twf6mk"><li class="svelte-1twf6mk"><a sveltekit:prefetch href="/" class="svelte-1twf6mk">Home</a></li>
+	<li class="svelte-1twf6mk"><a sveltekit:prefetch href="/about" class="svelte-1twf6mk">About</a></li>
+	<li class="svelte-1twf6mk active"><a sveltekit:prefetch href="/todos" class="svelte-1twf6mk">Todos</a></li></ul>
+<svg viewBox="0 0 2 3" aria-hidden="true" class="svelte-1twf6mk"><path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" class="svelte-1twf6mk"></path></svg></nav>
+
+	<div class="corner svelte-1twf6mk"></div>
+</header>
+
+<main class="svelte-1izrdc8">
+
+<div class="todos svelte-dmxqmd"><h1>Todos</h1>
+
+	<form class="new svelte-dmxqmd" action="/todos.json" method="post"><input name="text" aria-label="Add todo" placeholder="+ tap to add a todo" class="svelte-dmxqmd"></form>
+
+	
+</div></main>
+
+<footer class="svelte-1izrdc8"><p>visit <a href="https://kit.svelte.dev" class="svelte-1izrdc8">kit.svelte.dev</a> to learn SvelteKit</p>
+</footer>
+
+
 
 	
 </div>

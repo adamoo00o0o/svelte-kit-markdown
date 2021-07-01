@@ -13,13 +13,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link href="/prism.css" rel="stylesheet" />
 
-		
+		<title>API Docs • Svelte</title><meta name="twitter:title" content="Svelte API docs" data-svelte="svelte-1p64a9b"><meta name="twitter:description" content="Cybernetically enhanced web apps" data-svelte="svelte-1p64a9b"><meta name="Description" content="Cybernetically enhanced web apps" data-svelte="svelte-1p64a9b">
 
 		
 
 		<link rel="modulepreload" href="/svelte-kit-markdown/_app/start-480dbb99.js">
 		<link rel="modulepreload" href="/svelte-kit-markdown/_app/chunks/vendor-be40cf64.js">
+		<link rel="modulepreload" href="/svelte-kit-markdown/_app/pages/__layout.svelte-04ffcc77.js">
+		<link rel="modulepreload" href="/svelte-kit-markdown/_app/pages/docs/index.svelte-9eacbf75.js">
 		<link rel="stylesheet" href="/svelte-kit-markdown/_app/assets/start-a8cd1609.css">
+		<link rel="stylesheet" href="/svelte-kit-markdown/_app/assets/pages/__layout.svelte-41f514ac.css">
 
 		<script type="module">
 			import { start } from "/svelte-kit-markdown/_app/start-480dbb99.js";
@@ -29,16 +32,169 @@
 				session: {},
 				host: location.host,
 				route: true,
-				spa: true,
+				spa: false,
 				trailing_slash: "ignore",
-				hydrate: null
+				hydrate: {
+					status: 200,
+					error: null,
+					nodes: [
+						import("/svelte-kit-markdown/_app/pages/__layout.svelte-04ffcc77.js"),
+						import("/svelte-kit-markdown/_app/pages/docs/index.svelte-9eacbf75.js")
+					],
+					page: {
+						host: location.host, // TODO this is redundant
+						path: "/docs",
+						query: new URLSearchParams(""),
+						params: {}
+					}
+				}
 			});
 		</script>
 	</head>
 	<body>
 		<div id="svelte">
 
-	
+
+<header class="svelte-1twf6mk"><div class="corner svelte-1twf6mk"><a href="https://kit.svelte.dev" class="svelte-1twf6mk"><img src="/svelte-kit-markdown/_app/assets/svelte-logo.87df40b8.svg" alt="SvelteKit" class="svelte-1twf6mk"></a></div>
+
+	<nav class="svelte-1twf6mk"><svg viewBox="0 0 2 3" aria-hidden="true" class="svelte-1twf6mk"><path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" class="svelte-1twf6mk"></path></svg>
+<ul class="svelte-1twf6mk"><li class="svelte-1twf6mk"><a sveltekit:prefetch href="/" class="svelte-1twf6mk">Home</a></li>
+	<li class="svelte-1twf6mk"><a sveltekit:prefetch href="/about" class="svelte-1twf6mk">About</a></li>
+	<li class="svelte-1twf6mk"><a sveltekit:prefetch href="/todos" class="svelte-1twf6mk">Todos</a></li></ul>
+<svg viewBox="0 0 2 3" aria-hidden="true" class="svelte-1twf6mk"><path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" class="svelte-1twf6mk"></path></svg></nav>
+
+	<div class="corner svelte-1twf6mk"></div>
+</header>
+
+<main class="svelte-1izrdc8">
+
+<h1 class="visually-hidden">API Docs</h1>
+<div><section data-id=""><h2><span class="offset-anchor" id=""></span>
+		<!-- HTML_TAG_START -->hello !!!xzxczx<!-- HTML_TAG_END -->
+		<small><div>xxxx</div>
+		</small></h2>
+
+	<!-- HTML_TAG_START -->
+			<h1>
+				<span   class="offset-anchor" ></span>
+				<a  class="anchor" aria-hidden="true"></a>
+				h1xzc 撒旦
+			</h1>
+			<h2>
+				<span   class="offset-anchor" ></span>
+				<a  class="anchor" aria-hidden="true"></a>
+				啊我说的看撒旦
+			</h2><p>撒娇达拉斯 JFK 了就撒开了计算两点间拉萨机了就拉省的萨拉觉得 lsa</p>
+
+			<h3>
+				<span   class="offset-anchor" ></span>
+				<a  class="anchor" aria-hidden="true"></a>
+				啊圣诞快乐立刻解开了
+			</h3>
+			<h4>
+				<span   class="offset-anchor" ></span>
+				<a  class="anchor" aria-hidden="true"></a>
+				阿斯顿撒娇看了就撒了
+			</h4>
+			<h5>
+				<span   class="offset-anchor" data-scrollignore></span>
+				<a  class="anchor" aria-hidden="true"></a>
+				阿萨的口令撒；离开
+			</h5><div class='code-block'><pre class='language-javascript'><code><span class="token keyword">import</span> <span class="token punctuation">{</span> api <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./_api'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">get</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">request</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">api</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">docs/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>request<span class="token punctuation">.</span>locals<span class="token punctuation">.</span>userid<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> response<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div><div class='code-block'><pre class='language-bash'><code><span class="token builtin class-name">echo</span> <span class="token string">"xxxxx"</span></code></pre></div><div class='code-block'><pre class='language-markup'><code><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/favicon.png<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+
+%svelte.head%
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>svelte<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>%svelte.body%<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre></div><div class='code-block'><pre class='language-'><code>{
+	"devDependencies": {
+"@sveltejs/kit": "next",
+"@types/cookie": "^0.4.0",
+"@types/marked": "^2.0.3",
+"prettier": "~2.2.1",
+"prettier-plugin-svelte": "^2.2.0",
+"svelte": "^3.34.0",
+"svelte-check": "^2.0.0",
+"svelte-preprocess": "^4.0.0",
+"tslib": "^2.0.0",
+"typescript": "^4.0.0"
+	},
+	"type": "module"
+}</code></pre></div><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>电脑</td>
+<td>$1600</td>
+</tr>
+<tr>
+<td>手机</td>
+<td>$12</td>
+</tr>
+<tr>
+<td>导管</td>
+<td>$1</td>
+</tr>
+</tbody></table>
+<p><em>强调文本</em> <em>强调文本</em></p>
+<p><strong>加粗文本</strong> <strong>加粗文本</strong></p>
+<p>==标记文本==</p>
+<p><del>删除文本</del></p>
+<blockquote>
+<p>引用文本</p>
+</blockquote>
+<p>H<del>2</del>O is 是液体。</p>
+<p>2^10^ 运算结果是 1024。</p>
+<ul>
+<li>项目<ul>
+<li>项目<ul>
+<li>项目</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>项目 1</li>
+<li>项目 2</li>
+<li>项目 3</li>
+</ol>
+<ul>
+<li><input disabled="" type="checkbox"> 计划任务</li>
+<li><input checked="" disabled="" type="checkbox"> 完成任务</li>
+</ul>
+<p>链接: <a href="https://www.csdn.net/">link</a>.</p>
+<p>图片: <img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw" alt="Alt"></p>
+<!-- HTML_TAG_END -->
+</section><section data-id=""><h2><span class="offset-anchor" id=""></span>
+		<!-- HTML_TAG_START -->undefined<!-- HTML_TAG_END -->
+		<small><div>xxxx</div>
+		</small></h2>
+
+	<!-- HTML_TAG_START --><!-- HTML_TAG_END -->
+</section></div></main>
+
+<footer class="svelte-1izrdc8"><p>visit <a href="https://kit.svelte.dev" class="svelte-1izrdc8">kit.svelte.dev</a> to learn SvelteKit</p>
+</footer>
+
+
+
+	<script type="svelte-data" url="/docs.json">{"status":200,"statusText":"","headers":{"content-type":"application/json"},"body":"[{\"html\":\"\\n\\t\\t\\t\\t\\t\u003Ch1\u003E\\n\\t\\t\\t\\t\\t\\t\u003Cspan   class=\\\"offset-anchor\\\" \u003E\u003C\u002Fspan\u003E\\n\\t\\t\\t\\t\\t\\t\u003Ca  class=\\\"anchor\\\" aria-hidden=\\\"true\\\"\u003E\u003C\u002Fa\u003E\\n\\t\\t\\t\\t\\t\\th1xzc 撒旦\\n\\t\\t\\t\\t\\t\u003C\u002Fh1\u003E\\n\\t\\t\\t\\t\\t\u003Ch2\u003E\\n\\t\\t\\t\\t\\t\\t\u003Cspan   class=\\\"offset-anchor\\\" \u003E\u003C\u002Fspan\u003E\\n\\t\\t\\t\\t\\t\\t\u003Ca  class=\\\"anchor\\\" aria-hidden=\\\"true\\\"\u003E\u003C\u002Fa\u003E\\n\\t\\t\\t\\t\\t\\t啊我说的看撒旦\\n\\t\\t\\t\\t\\t\u003C\u002Fh2\u003E\u003Cp\u003E撒娇达拉斯 JFK 了就撒开了计算两点间拉萨机了就拉省的萨拉觉得 lsa\u003C\u002Fp\u003E\\n\\n\\t\\t\\t\\t\\t\u003Ch3\u003E\\n\\t\\t\\t\\t\\t\\t\u003Cspan   class=\\\"offset-anchor\\\" \u003E\u003C\u002Fspan\u003E\\n\\t\\t\\t\\t\\t\\t\u003Ca  class=\\\"anchor\\\" aria-hidden=\\\"true\\\"\u003E\u003C\u002Fa\u003E\\n\\t\\t\\t\\t\\t\\t啊圣诞快乐立刻解开了\\n\\t\\t\\t\\t\\t\u003C\u002Fh3\u003E\\n\\t\\t\\t\\t\\t\u003Ch4\u003E\\n\\t\\t\\t\\t\\t\\t\u003Cspan   class=\\\"offset-anchor\\\" \u003E\u003C\u002Fspan\u003E\\n\\t\\t\\t\\t\\t\\t\u003Ca  class=\\\"anchor\\\" aria-hidden=\\\"true\\\"\u003E\u003C\u002Fa\u003E\\n\\t\\t\\t\\t\\t\\t阿斯顿撒娇看了就撒了\\n\\t\\t\\t\\t\\t\u003C\u002Fh4\u003E\\n\\t\\t\\t\\t\\t\u003Ch5\u003E\\n\\t\\t\\t\\t\\t\\t\u003Cspan   class=\\\"offset-anchor\\\" data-scrollignore\u003E\u003C\u002Fspan\u003E\\n\\t\\t\\t\\t\\t\\t\u003Ca  class=\\\"anchor\\\" aria-hidden=\\\"true\\\"\u003E\u003C\u002Fa\u003E\\n\\t\\t\\t\\t\\t\\t阿萨的口令撒；离开\\n\\t\\t\\t\\t\\t\u003C\u002Fh5\u003E\u003Cdiv class='code-block'\u003E\u003Cpre class='language-javascript'\u003E\u003Ccode\u003E\u003Cspan class=\\\"token keyword\\\"\u003Eimport\u003C\u002Fspan\u003E \u003Cspan class=\\\"token punctuation\\\"\u003E{\u003C\u002Fspan\u003E api \u003Cspan class=\\\"token punctuation\\\"\u003E}\u003C\u002Fspan\u003E \u003Cspan class=\\\"token keyword\\\"\u003Efrom\u003C\u002Fspan\u003E \u003Cspan class=\\\"token string\\\"\u003E'.\u002F_api'\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E;\u003C\u002Fspan\u003E\\n\\n\u003Cspan class=\\\"token keyword\\\"\u003Eexport\u003C\u002Fspan\u003E \u003Cspan class=\\\"token keyword\\\"\u003Econst\u003C\u002Fspan\u003E \u003Cspan class=\\\"token function-variable function\\\"\u003Eget\u003C\u002Fspan\u003E \u003Cspan class=\\\"token operator\\\"\u003E=\u003C\u002Fspan\u003E \u003Cspan class=\\\"token keyword\\\"\u003Easync\u003C\u002Fspan\u003E \u003Cspan class=\\\"token punctuation\\\"\u003E(\u003C\u002Fspan\u003E\u003Cspan class=\\\"token parameter\\\"\u003Erequest\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E)\u003C\u002Fspan\u003E \u003Cspan class=\\\"token operator\\\"\u003E=\u003E\u003C\u002Fspan\u003E \u003Cspan class=\\\"token punctuation\\\"\u003E{\u003C\u002Fspan\u003E\\n\\t\u003Cspan class=\\\"token keyword\\\"\u003Econst\u003C\u002Fspan\u003E response \u003Cspan class=\\\"token operator\\\"\u003E=\u003C\u002Fspan\u003E \u003Cspan class=\\\"token keyword\\\"\u003Eawait\u003C\u002Fspan\u003E \u003Cspan class=\\\"token function\\\"\u003Eapi\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E(\u003C\u002Fspan\u003Erequest\u003Cspan class=\\\"token punctuation\\\"\u003E,\u003C\u002Fspan\u003E \u003Cspan class=\\\"token template-string\\\"\u003E\u003Cspan class=\\\"token template-punctuation string\\\"\u003E`\u003C\u002Fspan\u003E\u003Cspan class=\\\"token string\\\"\u003Edocs\u002F\u003C\u002Fspan\u003E\u003Cspan class=\\\"token interpolation\\\"\u003E\u003Cspan class=\\\"token interpolation-punctuation punctuation\\\"\u003E${\u003C\u002Fspan\u003Erequest\u003Cspan class=\\\"token punctuation\\\"\u003E.\u003C\u002Fspan\u003Elocals\u003Cspan class=\\\"token punctuation\\\"\u003E.\u003C\u002Fspan\u003Euserid\u003Cspan class=\\\"token interpolation-punctuation punctuation\\\"\u003E}\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\u003Cspan class=\\\"token template-punctuation string\\\"\u003E`\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E)\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E;\u003C\u002Fspan\u003E\\n\\t\u003Cspan class=\\\"token keyword\\\"\u003Ereturn\u003C\u002Fspan\u003E response\u003Cspan class=\\\"token punctuation\\\"\u003E;\u003C\u002Fspan\u003E\\n\u003Cspan class=\\\"token punctuation\\\"\u003E}\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E;\u003C\u002Fspan\u003E\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cdiv class='code-block'\u003E\u003Cpre class='language-bash'\u003E\u003Ccode\u003E\u003Cspan class=\\\"token builtin class-name\\\"\u003Eecho\u003C\u002Fspan\u003E \u003Cspan class=\\\"token string\\\"\u003E\\\"xxxxx\\\"\u003C\u002Fspan\u003E\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cdiv class='code-block'\u003E\u003Cpre class='language-markup'\u003E\u003Ccode\u003E\u003Cspan class=\\\"token doctype\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;!\u003C\u002Fspan\u003E\u003Cspan class=\\\"token doctype-tag\\\"\u003EDOCTYPE\u003C\u002Fspan\u003E \u003Cspan class=\\\"token name\\\"\u003Ehtml\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u003C\u002Fspan\u003Ehtml\u003C\u002Fspan\u003E \u003Cspan class=\\\"token attr-name\\\"\u003Elang\u003C\u002Fspan\u003E\u003Cspan class=\\\"token attr-value\\\"\u003E\u003Cspan class=\\\"token punctuation attr-equals\\\"\u003E=\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003Een\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\\t\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u003C\u002Fspan\u003Ehead\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\\t\\t\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u003C\u002Fspan\u003Emeta\u003C\u002Fspan\u003E \u003Cspan class=\\\"token attr-name\\\"\u003Echarset\u003C\u002Fspan\u003E\u003Cspan class=\\\"token attr-value\\\"\u003E\u003Cspan class=\\\"token punctuation attr-equals\\\"\u003E=\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003Eutf-8\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E \u003Cspan class=\\\"token punctuation\\\"\u003E\u002F\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\\t\\t\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u003C\u002Fspan\u003Elink\u003C\u002Fspan\u003E \u003Cspan class=\\\"token attr-name\\\"\u003Erel\u003C\u002Fspan\u003E\u003Cspan class=\\\"token attr-value\\\"\u003E\u003Cspan class=\\\"token punctuation attr-equals\\\"\u003E=\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003Eicon\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E \u003Cspan class=\\\"token attr-name\\\"\u003Ehref\u003C\u002Fspan\u003E\u003Cspan class=\\\"token attr-value\\\"\u003E\u003Cspan class=\\\"token punctuation attr-equals\\\"\u003E=\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003E\u002Ffavicon.png\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E \u003Cspan class=\\\"token punctuation\\\"\u003E\u002F\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\\t\\t\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u003C\u002Fspan\u003Emeta\u003C\u002Fspan\u003E \u003Cspan class=\\\"token attr-name\\\"\u003Ename\u003C\u002Fspan\u003E\u003Cspan class=\\\"token attr-value\\\"\u003E\u003Cspan class=\\\"token punctuation attr-equals\\\"\u003E=\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003Eviewport\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E \u003Cspan class=\\\"token attr-name\\\"\u003Econtent\u003C\u002Fspan\u003E\u003Cspan class=\\\"token attr-value\\\"\u003E\u003Cspan class=\\\"token punctuation attr-equals\\\"\u003E=\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003Ewidth=device-width, initial-scale=1\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E \u003Cspan class=\\\"token punctuation\\\"\u003E\u002F\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\\n\\t\\t%svelte.head%\\n\\t\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u002F\u003C\u002Fspan\u003Ehead\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\\t\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u003C\u002Fspan\u003Ebody\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\\t\\t\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u003C\u002Fspan\u003Ediv\u003C\u002Fspan\u003E \u003Cspan class=\\\"token attr-name\\\"\u003Eid\u003C\u002Fspan\u003E\u003Cspan class=\\\"token attr-value\\\"\u003E\u003Cspan class=\\\"token punctuation attr-equals\\\"\u003E=\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003Esvelte\u003Cspan class=\\\"token punctuation\\\"\u003E\\\"\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E%svelte.body%\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u002F\u003C\u002Fspan\u003Ediv\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\\t\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u002F\u003C\u002Fspan\u003Ebody\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\\n\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token tag\\\"\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E&lt;\u002F\u003C\u002Fspan\u003Ehtml\u003C\u002Fspan\u003E\u003Cspan class=\\\"token punctuation\\\"\u003E\u003E\u003C\u002Fspan\u003E\u003C\u002Fspan\u003E\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Cdiv class='code-block'\u003E\u003Cpre class='language-'\u003E\u003Ccode\u003E{\\n\\t\\\"devDependencies\\\": {\\n\\t\\t\\\"@sveltejs\u002Fkit\\\": \\\"next\\\",\\n\\t\\t\\\"@types\u002Fcookie\\\": \\\"^0.4.0\\\",\\n\\t\\t\\\"@types\u002Fmarked\\\": \\\"^2.0.3\\\",\\n\\t\\t\\\"prettier\\\": \\\"~2.2.1\\\",\\n\\t\\t\\\"prettier-plugin-svelte\\\": \\\"^2.2.0\\\",\\n\\t\\t\\\"svelte\\\": \\\"^3.34.0\\\",\\n\\t\\t\\\"svelte-check\\\": \\\"^2.0.0\\\",\\n\\t\\t\\\"svelte-preprocess\\\": \\\"^4.0.0\\\",\\n\\t\\t\\\"tslib\\\": \\\"^2.0.0\\\",\\n\\t\\t\\\"typescript\\\": \\\"^4.0.0\\\"\\n\\t},\\n\\t\\\"type\\\": \\\"module\\\"\\n}\u003C\u002Fcode\u003E\u003C\u002Fpre\u003E\u003C\u002Fdiv\u003E\u003Ctable\u003E\\n\u003Cthead\u003E\\n\u003Ctr\u003E\\n\u003Cth\u003E项目\u003C\u002Fth\u003E\\n\u003Cth\u003EValue\u003C\u002Fth\u003E\\n\u003C\u002Ftr\u003E\\n\u003C\u002Fthead\u003E\\n\u003Ctbody\u003E\u003Ctr\u003E\\n\u003Ctd\u003E电脑\u003C\u002Ftd\u003E\\n\u003Ctd\u003E$1600\u003C\u002Ftd\u003E\\n\u003C\u002Ftr\u003E\\n\u003Ctr\u003E\\n\u003Ctd\u003E手机\u003C\u002Ftd\u003E\\n\u003Ctd\u003E$12\u003C\u002Ftd\u003E\\n\u003C\u002Ftr\u003E\\n\u003Ctr\u003E\\n\u003Ctd\u003E导管\u003C\u002Ftd\u003E\\n\u003Ctd\u003E$1\u003C\u002Ftd\u003E\\n\u003C\u002Ftr\u003E\\n\u003C\u002Ftbody\u003E\u003C\u002Ftable\u003E\\n\u003Cp\u003E\u003Cem\u003E强调文本\u003C\u002Fem\u003E \u003Cem\u003E强调文本\u003C\u002Fem\u003E\u003C\u002Fp\u003E\\n\u003Cp\u003E\u003Cstrong\u003E加粗文本\u003C\u002Fstrong\u003E \u003Cstrong\u003E加粗文本\u003C\u002Fstrong\u003E\u003C\u002Fp\u003E\\n\u003Cp\u003E==标记文本==\u003C\u002Fp\u003E\\n\u003Cp\u003E\u003Cdel\u003E删除文本\u003C\u002Fdel\u003E\u003C\u002Fp\u003E\\n\u003Cblockquote\u003E\\n\u003Cp\u003E引用文本\u003C\u002Fp\u003E\\n\u003C\u002Fblockquote\u003E\\n\u003Cp\u003EH\u003Cdel\u003E2\u003C\u002Fdel\u003EO is 是液体。\u003C\u002Fp\u003E\\n\u003Cp\u003E2^10^ 运算结果是 1024。\u003C\u002Fp\u003E\\n\u003Cul\u003E\\n\u003Cli\u003E项目\u003Cul\u003E\\n\u003Cli\u003E项目\u003Cul\u003E\\n\u003Cli\u003E项目\u003C\u002Fli\u003E\\n\u003C\u002Ful\u003E\\n\u003C\u002Fli\u003E\\n\u003C\u002Ful\u003E\\n\u003C\u002Fli\u003E\\n\u003C\u002Ful\u003E\\n\u003Col\u003E\\n\u003Cli\u003E项目 1\u003C\u002Fli\u003E\\n\u003Cli\u003E项目 2\u003C\u002Fli\u003E\\n\u003Cli\u003E项目 3\u003C\u002Fli\u003E\\n\u003C\u002Fol\u003E\\n\u003Cul\u003E\\n\u003Cli\u003E\u003Cinput disabled=\\\"\\\" type=\\\"checkbox\\\"\u003E 计划任务\u003C\u002Fli\u003E\\n\u003Cli\u003E\u003Cinput checked=\\\"\\\" disabled=\\\"\\\" type=\\\"checkbox\\\"\u003E 完成任务\u003C\u002Fli\u003E\\n\u003C\u002Ful\u003E\\n\u003Cp\u003E链接: \u003Ca href=\\\"https:\u002F\u002Fwww.csdn.net\u002F\\\"\u003Elink\u003C\u002Fa\u003E.\u003C\u002Fp\u003E\\n\u003Cp\u003E图片: \u003Cimg src=\\\"https:\u002F\u002Fimgconvert.csdnimg.cn\u002FaHR0cHM6Ly9hdmF0YXIuY3Nkbi5uZXQvNy83L0IvMV9yYWxmX2h4MTYzY29tLmpwZw\\\" alt=\\\"Alt\\\"\u003E\u003C\u002Fp\u003E\\n\",\"metadata\":{\"title\":\"hello !!!xzxczx\"},\"subsections\":[{\"slug\":\"\",\"title\":\"h1xzc 撒旦\",\"level\":1},{\"slug\":\"\",\"title\":\"啊我说的看撒旦\",\"level\":2},{\"slug\":\"\",\"title\":\"啊圣诞快乐立刻解开了\",\"level\":3},{\"slug\":\"\",\"title\":\"阿斯顿撒娇看了就撒了\",\"level\":4}],\"slug\":\"\",\"file\":\"gogo.md\"},{\"html\":\"\",\"metadata\":{},\"subsections\":[],\"slug\":\"\",\"file\":\"test.md\"}]"}</script>
 </div>
 	</body>
 </html>
