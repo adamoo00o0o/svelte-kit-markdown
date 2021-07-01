@@ -2,7 +2,7 @@
  * @Author: yehuozhili
  * @Date: 2021-06-29 11:14:15
  * @LastEditors: yehuozhili
- * @LastEditTime: 2021-07-01 21:16:10
+ * @LastEditTime: 2021-07-02 00:08:12
  * @FilePath: \my-app\svelte.config.js
  */
 import preprocess from 'svelte-preprocess';

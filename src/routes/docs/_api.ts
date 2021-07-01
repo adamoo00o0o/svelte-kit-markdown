@@ -5,6 +5,7 @@ import type { Request } from '@sveltejs/kit';
 import type { Locals } from '$lib/types';
 import { extract_frontmatter, extract_metadata } from '../../utils/markdown';
 import { highlight } from '../../utils/highlight';
+import { make_session_slug_processor } from '../../utils/slug';
 
 export interface MarkDownItemProps {
 	html: string;
@@ -38,6 +39,8 @@ const blockTypes = [
 export const getMarkDown = (): MarkDownItemProps[] => {
 	const root = process.cwd();
 	const docPath = path.resolve(root, 'src', 'docs');
+	const make_slug = make_session_slug_processor();
+
 	return fs
 		.readdirSync(docPath)
 		.filter((file) => file[0] !== '.' && path.extname(file) === '.md')
@@ -46,7 +49,7 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 			const markdown = fs.readFileSync(currentFilePath, 'utf-8');
 			const { content, metadata } = extract_frontmatter(markdown);
 			const subsections = [];
-
+			const section_slug = make_slug(metadata.title);
 			const renderer = new marked.Renderer();
 			let block_open = false;
 
@@ -63,7 +66,7 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 				const meta = extract_metadata(lines[0], lang);
 				let prefix = '';
 				let className = 'code-block';
-
+				console.log(meta);
 				if (meta) {
 					source = lines.slice(1).join('\n');
 					const filename = meta.filename || (lang === 'html' && 'App.svelte');
@@ -84,8 +87,17 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 
 				return html;
 			};
-
+			// 这个heading是md的标题
 			renderer.heading = (text, level, rawtext) => {
+				let slug;
+				const match = /<a href="([^"]+)"[^>]*>(.+)<\/a>/.exec(text); // 提取a标签，链接为slug
+				if (match) {
+					slug = match[1];
+					text = match[2];
+				} else {
+					slug = make_slug(rawtext);
+				}
+
 				if (level === 1 || level === 2 || level === 3 || level === 4) {
 					const title = text
 						.replace(/<\/?code>/g, '')
@@ -95,13 +107,13 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 							return `.${$1}`;
 						});
 
-					subsections.push({ slug: '', title, level });
+					subsections.push({ slug, title, level });
 				}
 
 				return `
 					<h${level}>
-						<span   class="offset-anchor" ${level > 4 ? 'data-scrollignore' : ''}></span>
-						<a  class="anchor" aria-hidden="true"></a>
+						<span  id="${slug}"  class="offset-anchor" ${level > 4 ? 'data-scrollignore' : ''}></span>
+						<a  href="docs#${slug}" class="anchor" aria-hidden="true"></a>
 						${text}
 					</h${level}>`;
 			};
@@ -116,7 +128,6 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 			const html = marked(content, { renderer });
 
 			const hashes = {};
-			const section_slug = '';
 			return {
 				html: html.replace(/@@(\d+)/g, (m, id) => hashes[id] || m),
 				metadata,
