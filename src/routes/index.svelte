@@ -20,12 +20,6 @@
 			</picture>
 		</div>
 	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-	<Button>XCXZCZXCZXCASD</Button>
-	<Counter />
 </section>
 
 <style>

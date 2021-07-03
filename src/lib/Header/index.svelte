@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { base } from '$app/paths';
+	import { Button } from '@material-svelte/button';
 	import logo from './svelte-logo.svg';
 	const home = base + '/';
 	const about = base + '/about';
@@ -9,116 +10,53 @@
 
 <header>
 	<div class="corner">
-		<a href="https://kit.svelte.dev">
-			<img src={logo} alt="SvelteKit" />
-		</a>
+		<img src={logo} alt="SvelteKit" />
 	</div>
 
-	<nav>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href={home}>Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href={about}>About</a></li>
-			<li class:active={$page.path === '/docs'}><a sveltekit:prefetch href={docs}>docs</a></li>
-		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
+	<nav style="width: 100%;">
+		<div class="nav-item-wrapper">
+			<div class:active={$page.path === '/'}>
+				<Button variant="text" href={home} backgroundColor="#4d5164">首页</Button>
+			</div>
+			<div class:active={$page.path === '/about'}>
+				<Button variant="text" href={about} backgroundColor="#4d5164">图标</Button>
+			</div>
+			<div class:active={$page.path === '/docs'}>
+				<Button variant="text" href={docs} backgroundColor="#4d5164">文档</Button>
+			</div>
+		</div>
 	</nav>
-
-	<div class="corner">
-		<!-- TODO put something else here? github link? -->
-	</div>
 </header>
 
-<style>
+<style lang="scss">
+	$height: 40px;
 	header {
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB,
+			Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji,
+			Segoe UI Emoji, Segoe UI Symbol;
+		border-bottom: 1px solid #e2e2e2;
 	}
-
 	.corner {
-		width: 3em;
-		height: 3em;
-	}
-
-	.corner a {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 100%;
-		height: 100%;
-	}
-
-	.corner img {
-		width: 2em;
-		height: 2em;
-		object-fit: contain;
-	}
-
-	nav {
-		display: flex;
-		justify-content: center;
-		--background: rgba(255, 255, 255, 0.7);
-	}
-
-	svg {
-		width: 2em;
-		height: 3em;
-		display: block;
-	}
-
-	path {
-		fill: var(--background);
-	}
-
-	ul {
-		position: relative;
-		padding: 0;
-		margin: 0;
-		height: 3em;
+		height: $height;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		list-style: none;
-		background: var(--background);
-		background-size: contain;
+		margin-left: 20px;
+		img {
+			width: $height - 5px;
+			height: $height - 5px;
+		}
 	}
-
-	li {
-		position: relative;
-		height: 100%;
-	}
-
-	li.active::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
-		border-top: var(--size) solid var(--accent-color);
-	}
-
-	nav a {
+	.nav-item-wrapper {
+		height: $height;
 		display: flex;
-		height: 100%;
+		justify-content: flex-end;
 		align-items: center;
-		padding: 0 1em;
-		color: var(--heading-color);
-		font-weight: 700;
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 10%;
-		text-decoration: none;
-		transition: color 0.2s linear;
-	}
-
-	a:hover {
-		color: var(--accent-color);
+		:nth-last-child(1) {
+			margin-right: 20px;
+		}
 	}
 </style>

@@ -32,6 +32,8 @@
 	<Icon name="save" />
 	<Icon name="link" />
 	<Icon name="chevron" />
+	<Icon name="404" />
+	<Icon name="user" />
 </div>
 
 <style>
