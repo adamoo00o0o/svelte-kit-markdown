@@ -51,7 +51,6 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 
 			const subsections = [];
 			const section_slug = slugf(metadata.title, '_');
-			console.log(section_slug);
 			const renderer = new marked.Renderer();
 			let block_open = false;
 
