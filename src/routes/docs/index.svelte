@@ -37,14 +37,14 @@
 	<div class="sidebar">
 		{#each sections as section}
 			<div class="title-item" style="cursor: pointer;">
-				<div
+				<span
 					class="ahref"
 					on:click={() => {
 						location.href = `#${section.slug}`;
 					}}
 				>
 					{@html section.metadata.title}
-				</div>
+				</span>
 			</div>
 		{/each}
 	</div>
