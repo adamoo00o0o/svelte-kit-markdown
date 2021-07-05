@@ -22,11 +22,7 @@
 
 <script lang="ts">
 	import './prism.css';
-	import Icon from '$lib/Icon/index.svelte';
-	import Icons from '$lib/Icons/index.svelte';
 	export let sections: MarkDownItemProps[];
-	let aside;
-	let show_contents = false;
 </script>
 
 <svelte:head>
@@ -37,18 +33,22 @@
 	<meta name="Description" content="Cybernetically enhanced web apps" />
 </svelte:head>
 
-<Icons />
-
-<div>
-	<div>
+<div style="display: flex;">
+	<div class="sidebar">
+		{#each sections as section}
+			<div class="title-item" style="cursor: pointer;">
+				<a class="ahref" href={`docs#${section.slug}`}>
+					{@html section.metadata.title}
+				</a>
+			</div>
+		{/each}
+	</div>
+	<div class="markdown-wrapper">
 		{#each sections as section}
 			<section data-id={section.slug}>
 				<h1>
 					<span class="offset-anchor" id={section.slug} />
 					{@html section.metadata.title}
-					<small>
-						{section.file}
-					</small>
 				</h1>
 
 				{@html section.html}
@@ -57,49 +57,38 @@
 	</div>
 </div>
 
-<aside bind:this={aside} class="sidebar-container" class:open={show_contents}>
-	<div class="sidebar">
-		{#if show_contents}
-			<div on:click={() => (show_contents = !show_contents)}>
-				<Icon name="arrow-left" />
-			</div>
-			{#each sections as section}
-				<div style="cursor: pointer;">
-					<a href={`docs#${section.slug}`}>
-						{@html section.metadata.title}
-					</a>
-				</div>
-			{/each}
-		{:else}
-			<div on:click={() => (show_contents = !show_contents)}>
-				<Icon name="arrow-right" />
-			</div>
-		{/if}
-	</div>
-</aside>
-
-<style>
-	aside {
-		position: fixed;
-		background-color: white;
-		padding-right: 5px;
-		left: 10px;
-		top: 10%;
-		width: 21px;
-		height: 21px;
-		overflow: hidden;
+<style lang="scss">
+	.markdown-wrapper {
+		height: calc(100vh - 40px);
 		overflow: auto;
-		border: 1px solid #eee;
-		box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
-		transition: width 0.2s, height 0.2s;
+		width: 100%;
+		padding: 20px;
+		box-sizing: border-box;
 	}
-
-	aside.open {
-		width: 200px;
-		height: 80%;
+	.sidebar {
+		padding: 20px;
 		overflow: auto;
+		height: calc(100vh - 40px);
+		border-right: 1px solid #eee;
+		width: 300px;
+		box-sizing: border-box;
+		.ahref {
+			text-decoration: none;
+			color: #333;
+			&:hover,
+			&:visited,
+			&:link,
+			&:active {
+				color: #333;
+			}
+		}
+		.title-item {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden;
+			margin: 10px 0;
+		}
 	}
-
 	section :global(blockquote) {
 		color: hsl(204, 100%, 50%);
 		border: 2px solid var(--flash);

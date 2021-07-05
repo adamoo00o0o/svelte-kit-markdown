@@ -5,7 +5,7 @@ import type { Request } from '@sveltejs/kit';
 import type { Locals } from '$lib/types';
 import { extract_frontmatter, extract_metadata } from '../../utils/markdown';
 import { highlight } from '../../utils/highlight';
-import { make_session_slug_processor } from '../../utils/slug';
+import slugf from 'slug';
 
 export interface MarkDownItemProps {
 	html: string;
@@ -39,7 +39,6 @@ const blockTypes = [
 export const getMarkDown = (): MarkDownItemProps[] => {
 	const root = process.cwd();
 	const docPath = path.resolve(root, 'src', 'docs');
-	const make_slug = make_session_slug_processor();
 
 	return fs
 		.readdirSync(docPath)
@@ -48,8 +47,11 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 			const currentFilePath = path.resolve(docPath, file);
 			const markdown = fs.readFileSync(currentFilePath, 'utf-8');
 			const { content, metadata } = extract_frontmatter(markdown);
+			const order = parseInt(metadata.order);
+
 			const subsections = [];
-			const section_slug = make_slug(metadata.title);
+			const section_slug = slugf(metadata.title, '_');
+			console.log(section_slug);
 			const renderer = new marked.Renderer();
 			let block_open = false;
 
@@ -66,7 +68,6 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 				const meta = extract_metadata(lines[0], lang);
 				let prefix = '';
 				let className = 'code-block';
-				console.log(meta);
 				if (meta) {
 					source = lines.slice(1).join('\n');
 					const filename = meta.filename || (lang === 'html' && 'App.svelte');
@@ -95,7 +96,7 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 					slug = match[1];
 					text = match[2];
 				} else {
-					slug = make_slug(rawtext);
+					slug = slugf(rawtext, '_');
 				}
 
 				if (level === 1 || level === 2 || level === 3 || level === 4) {
@@ -133,7 +134,9 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 				metadata,
 				subsections,
 				slug: section_slug,
+				order,
 				file
 			};
-		});
+		})
+		.sort((a, b) => a.order - b.order);
 };

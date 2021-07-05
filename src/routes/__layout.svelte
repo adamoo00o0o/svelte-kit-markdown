@@ -29,6 +29,6 @@
 		height: calc(100vh - 41px);
 		display: flex;
 		flex-direction: column;
-		overflow: auto;
+		overflow: hidden;
 	}
 </style>
