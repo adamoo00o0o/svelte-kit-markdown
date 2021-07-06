@@ -3,8 +3,6 @@
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter/index.svelte';
-	import { Button } from '@material-svelte/button';
 </script>
 
 <svelte:head>

@@ -1,9 +1,9 @@
 <script context="module" lang="ts">
 	import type { Load } from '@sveltejs/kit';
-	import type { MarkDownItemProps } from './_api';
+	import type { MarkDownItemProps } from '../docs/_api';
 	import { base } from '$app/paths';
 	export const load: Load = async ({ fetch }) => {
-		const path = `${base}/docs.json?name=docs`;
+		const path = `${base}/docs.json?name=api`;
 		const res = await fetch(path);
 		if (res.ok) {
 			const files = await res.json();

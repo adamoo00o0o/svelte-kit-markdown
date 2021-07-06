@@ -15,8 +15,8 @@ export interface MarkDownItemProps {
 	sTitle: string;
 }
 
-export async function api() {
-	const res = await getMarkDown();
+export async function api(name: string) {
+	const res = await getMarkDown(name);
 	return {
 		status: 200,
 		body: res
@@ -36,9 +36,9 @@ const blockTypes = [
 	'tablecell'
 ];
 
-export const getMarkDown = () => {
+export const getMarkDown = (name: string) => {
 	const root = process.cwd();
-	const docPath = path.resolve(root, 'src', 'docs');
+	const docPath = path.resolve(root, 'src', name);
 
 	return fs
 		.readdirSync(docPath)

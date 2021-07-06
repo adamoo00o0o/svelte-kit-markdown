@@ -6,6 +6,7 @@
 	const home = base + '/';
 	const about = base + '/about';
 	const docs = base + '/docs';
+	const api = base + '/api';
 </script>
 
 <header>
@@ -16,13 +17,32 @@
 	<nav style="width: 100%;">
 		<div class="nav-item-wrapper">
 			<div class:active={$page.path === '/'}>
-				<Button variant="text" href={home} backgroundColor="#4d5164">首页</Button>
+				<Button
+					variant="text"
+					href={home}
+					backgroundColor={$page.path === '/' ? '#4569d4' : '#4d5164'}>首页</Button
+				>
 			</div>
 			<div class:active={$page.path === '/about'}>
-				<Button variant="text" href={about} backgroundColor="#4d5164">图标</Button>
+				<Button
+					variant="text"
+					href={about}
+					backgroundColor={$page.path === '/about' ? '#4569d4' : '#4d5164'}>图标</Button
+				>
+			</div>
+			<div class:active={$page.path === '/api'}>
+				<Button
+					variant="text"
+					href={api}
+					backgroundColor={$page.path === '/api' ? '#4569d4' : '#4d5164'}>API</Button
+				>
 			</div>
 			<div class:active={$page.path === '/docs'}>
-				<Button variant="text" href={docs} backgroundColor="#4d5164">文档</Button>
+				<Button
+					variant="text"
+					href={docs}
+					backgroundColor={$page.path === '/docs' ? '#4569d4' : '#4d5164'}>文档</Button
+				>
 			</div>
 		</div>
 	</nav>
@@ -38,6 +58,9 @@
 			Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji,
 			Segoe UI Emoji, Segoe UI Symbol;
 		border-bottom: 1px solid #e2e2e2;
+	}
+	.active {
+		color: #4569d4;
 	}
 	.corner {
 		height: $height;
