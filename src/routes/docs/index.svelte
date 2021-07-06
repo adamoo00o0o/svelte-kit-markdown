@@ -35,6 +35,7 @@
 	import './prism.css';
 	export let sections: Map<string, MarkDownItemProps[]>;
 	const arr = Array.from(sections.keys());
+	let active = '';
 </script>
 
 <svelte:head>
@@ -50,11 +51,12 @@
 		{#each arr as stitle}
 			{#if stitle !== 'default'}
 				<div
-					class="stitle"
+					class={`stitle ahref fbold ${active === stitle ? 'active' : ''}`}
 					style="cursor: pointer;"
 					title={stitle}
 					on:click={() => {
 						location.href = `#${stitle}`;
+						active = stitle;
 					}}
 				>
 					{@html stitle}
@@ -62,9 +64,10 @@
 				{#each sections.get(stitle) as section}
 					<div class="title-item" style="cursor: pointer;">
 						<span
-							class="ahref"
+							class={`ahref  ${active === section.metadata.title ? 'active' : ''}`}
 							on:click={() => {
 								location.href = `#${section.slug}`;
+								active = section.metadata.title;
 							}}
 							title={section.metadata.title}
 						>
@@ -76,11 +79,12 @@
 			{#if stitle === 'default'}
 				{#each sections.get(stitle) as section}
 					<!-- 没有主标题则二级变一级 -->
-					<div class="stitle" style="cursor: pointer;">
+					<div class="stitle fbold" style="cursor: pointer;">
 						<span
-							class="ahref"
+							class={`ahref  ${active === section.metadata.title ? 'active' : ''}`}
 							on:click={() => {
 								location.href = `#${section.slug}`;
+								active = section.metadata.title;
 							}}
 							title={section.metadata.title}
 						>
@@ -130,6 +134,9 @@
 		padding: 20px;
 		box-sizing: border-box;
 	}
+	.fbold {
+		font-weight: bold;
+	}
 	.sidebar {
 		padding: 20px;
 		overflow: auto;
@@ -137,14 +144,19 @@
 		border-right: 1px solid #eee;
 		width: 300px;
 		box-sizing: border-box;
+		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, PingFang SC, Hiragino Sans GB,
+			Microsoft YaHei, Helvetica Neue, Helvetica, Arial, sans-serif, Apple Color Emoji,
+			Segoe UI Emoji, Segoe UI Symbol;
 		.ahref {
 			text-decoration: none;
-			color: #333;
-			&:hover,
+			color: #717484;
+			&:hover {
+				color: #4569d4;
+			}
 			&:visited,
 			&:link,
 			&:active {
-				color: #333;
+				color: #717484;
 			}
 		}
 		.stitle {
@@ -159,6 +171,9 @@
 			& ::selection {
 				cursor: pointer;
 			}
+		}
+		.active {
+			color: #4569d4;
 		}
 	}
 	section :global(blockquote) {
