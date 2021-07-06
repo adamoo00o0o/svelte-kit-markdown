@@ -2,11 +2,9 @@
  * @Author: yehuozhili
  * @Date: 2021-06-30 19:09:39
  * @LastEditors: yehuozhili
- * @LastEditTime: 2021-07-01 10:20:59
+ * @LastEditTime: 2021-07-06 14:19:17
  * @FilePath: \my-app\src\utils\markdown.ts
  */
-import * as fleece from 'golden-fleece';
-
 export function extract_frontmatter(markdown) {
 	const match = /---\r?\n([\s\S]+?)\r?\n---/.exec(markdown);
 	let content = '';
@@ -29,21 +27,6 @@ export function extract_frontmatter(markdown) {
 	}
 
 	return { metadata, content };
-}
-
-export function extract_metadata(line, lang) {
-	try {
-		if (lang === 'html' && line.startsWith('<!--') && line.endsWith('-->')) {
-			return fleece.evaluate(line.slice(4, -3).trim());
-		}
-
-		if (lang === 'js' || (lang === 'json' && line.startsWith('/*') && line.endsWith('*/'))) {
-			return fleece.evaluate(line.slice(2, -2).trim());
-		}
-	} catch (err) {
-		// TODO report these errors, don't just squelch them
-		return null;
-	}
 }
 
 // map lang to prism-language-attr

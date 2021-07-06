@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import marked from 'marked';
-import { extract_frontmatter, extract_metadata } from '../../utils/markdown';
+import { extract_frontmatter } from '../../utils/markdown';
 import { highlight } from '../../utils/highlight';
 import slugf from 'slug';
 
@@ -62,24 +62,9 @@ export const getMarkDown = () => {
 
 			renderer.code = (source, lang) => {
 				source = source.replace(/^ +/gm, (match) => match.split('    ').join('\t'));
-				const lines = source.split('\n');
-
-				const meta = extract_metadata(lines[0], lang);
 				let prefix = '';
 				let className = 'code-block';
-				if (meta) {
-					source = lines.slice(1).join('\n');
-					const filename = meta.filename || (lang === 'html' && 'App.svelte');
-					if (filename) {
-						prefix = `<span class='filename'>${prefix} ${filename}</span>`;
-						className += ' named';
-					}
-				}
-
-				if (meta && meta.hidden) return '';
-
 				const html = `<div class='${className}'>${prefix}${highlight(source, lang)}</div>`;
-
 				if (block_open) {
 					block_open = false;
 					return `</div><div class="code">${html}</div></div>`;
