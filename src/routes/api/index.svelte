@@ -3,7 +3,7 @@
 	import type { MarkDownItemProps } from '../docs/_api';
 	import { base } from '$app/paths';
 	export const load: Load = async ({ fetch }) => {
-		const path = `${base}/docs.json?name=api`;
+		const path = `${base}/api.json?name=api`;
 		const res = await fetch(path);
 		if (res.ok) {
 			const files = await res.json();
