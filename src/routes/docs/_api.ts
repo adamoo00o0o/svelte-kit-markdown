@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 import marked from 'marked';
-import type { Request } from '@sveltejs/kit';
-import type { Locals } from '$lib/types';
 import { extract_frontmatter, extract_metadata } from '../../utils/markdown';
 import { highlight } from '../../utils/highlight';
 import slugf from 'slug';
@@ -13,9 +11,11 @@ export interface MarkDownItemProps {
 	subsections: { slug: string; title: string; level: string }[];
 	slug: string;
 	file: string;
+	order: number;
+	sTitle: string;
 }
 
-export async function api(request: Request<Locals>, resource: string, data?: {}) {
+export async function api() {
 	const res = await getMarkDown();
 	return {
 		status: 200,
@@ -36,7 +36,7 @@ const blockTypes = [
 	'tablecell'
 ];
 
-export const getMarkDown = (): MarkDownItemProps[] => {
+export const getMarkDown = () => {
 	const root = process.cwd();
 	const docPath = path.resolve(root, 'src', 'docs');
 
@@ -48,7 +48,7 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 			const markdown = fs.readFileSync(currentFilePath, 'utf-8');
 			const { content, metadata } = extract_frontmatter(markdown);
 			const order = parseInt(metadata.order);
-
+			const sTitle = metadata.sTitle;
 			const subsections = [];
 			const section_slug = slugf(metadata.title, '_');
 			const renderer = new marked.Renderer();
@@ -111,11 +111,11 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 				}
 
 				return `
-					<h${level}>
-						<span  id="${slug}"  class="offset-anchor" ${level > 4 ? 'data-scrollignore' : ''}></span>
+					<h${level + 1}>
+						<span  id="${slug}"  ></span>
 						<a  href="docs#${slug}" class="anchor" aria-hidden="true"></a>
 						${text}
-					</h${level}>`;
+					</h${level + 1}>`;
 			};
 
 			blockTypes.forEach((type) => {
@@ -134,7 +134,8 @@ export const getMarkDown = (): MarkDownItemProps[] => {
 				subsections,
 				slug: section_slug,
 				order,
-				file
+				file,
+				sTitle
 			};
 		})
 		.sort((a, b) => a.order - b.order);

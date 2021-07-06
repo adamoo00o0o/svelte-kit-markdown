@@ -6,9 +6,20 @@
 		const path = `${base}/docs.json`;
 		const res = await fetch(path);
 		if (res.ok) {
-			const sections: MarkDownItemProps[] = await res.json();
+			const files = await res.json();
+			const map = new Map<string, MarkDownItemProps[]>();
+			files.forEach((v) => {
+				const stitle = v.sTitle || 'default';
+				const value = map.get(stitle);
+				if (value) {
+					value.push(v);
+				} else {
+					map.set(stitle, [v]);
+				}
+			});
+
 			return {
-				props: { sections }
+				props: { sections: map }
 			};
 		}
 
@@ -22,7 +33,8 @@
 
 <script lang="ts">
 	import './prism.css';
-	export let sections: MarkDownItemProps[];
+	export let sections: Map<string, MarkDownItemProps[]>;
+	const arr = Array.from(sections.keys());
 </script>
 
 <svelte:head>
@@ -35,34 +47,82 @@
 
 <div style="display: flex;">
 	<div class="sidebar">
-		{#each sections as section}
-			<div class="title-item" style="cursor: pointer;">
-				<span
-					class="ahref"
+		{#each arr as stitle}
+			{#if stitle !== 'default'}
+				<div
+					class="stitle"
+					style="cursor: pointer;"
+					title={stitle}
 					on:click={() => {
-						location.href = `#${section.slug}`;
+						location.href = `#${stitle}`;
 					}}
 				>
-					{@html section.metadata.title}
-				</span>
-			</div>
+					{@html stitle}
+				</div>
+				{#each sections.get(stitle) as section}
+					<div class="title-item" style="cursor: pointer;">
+						<span
+							class="ahref"
+							on:click={() => {
+								location.href = `#${section.slug}`;
+							}}
+							title={section.metadata.title}
+						>
+							{@html section.metadata.title}
+						</span>
+					</div>
+				{/each}
+			{/if}
+			{#if stitle === 'default'}
+				{#each sections.get(stitle) as section}
+					<!-- 没有主标题则二级变一级 -->
+					<div class="stitle" style="cursor: pointer;">
+						<span
+							class="ahref"
+							on:click={() => {
+								location.href = `#${section.slug}`;
+							}}
+							title={section.metadata.title}
+						>
+							{@html section.metadata.title}
+						</span>
+					</div>
+				{/each}
+			{/if}
 		{/each}
 	</div>
 	<div class="markdown-wrapper">
-		{#each sections as section}
-			<section data-id={section.slug}>
-				<h1>
-					<span class="offset-anchor" id={section.slug} />
-					{@html section.metadata.title}
+		{#each arr as stitle}
+			{#if stitle !== 'default'}
+				<h1 class="stitle-content" id={stitle}>
+					{@html stitle}
 				</h1>
+				<div class="yh-interval-s" />
+			{/if}
+			{#each sections.get(stitle) as section}
+				<section data-id={section.slug}>
+					<h2>
+						<span class="offset-anchor" id={section.slug} />
+						{@html section.metadata.title}
+					</h2>
 
-				{@html section.html}
-			</section>
+					{@html section.html}
+				</section>
+				<div class="yh-interval" />
+			{/each}
 		{/each}
 	</div>
 </div>
 
 <style lang="scss">
+	.yh-interval-s {
+		width: 100%;
+		padding: 2px;
+	}
+	.yh-interval {
+		width: 100%;
+		padding: 10px;
+	}
 	.markdown-wrapper {
 		height: calc(100vh - 40px);
 		overflow: auto;
@@ -87,11 +147,18 @@
 				color: #333;
 			}
 		}
+		.stitle {
+			margin: 20px 0;
+		}
 		.title-item {
 			text-overflow: ellipsis;
 			white-space: nowrap;
 			overflow: hidden;
-			margin: 10px 0;
+			margin: 20px 0 20px 20px;
+
+			& ::selection {
+				cursor: pointer;
+			}
 		}
 	}
 	section :global(blockquote) {
