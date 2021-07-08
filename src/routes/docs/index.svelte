@@ -6,20 +6,9 @@
 		const path = `${base}/docs.json?name=docs`;
 		const res = await fetch(path);
 		if (res.ok) {
-			const files = await res.json();
-			const map = new Map<string, MarkDownItemProps[]>();
-			files.forEach((v) => {
-				const stitle = v.sTitle || 'default';
-				const value = map.get(stitle);
-				if (value) {
-					value.push(v);
-				} else {
-					map.set(stitle, [v]);
-				}
-			});
-
+			const files: MarkDownItemProps[] = await res.json();
 			return {
-				props: { sections: map }
+				props: { files: files }
 			};
 		}
 
@@ -33,7 +22,33 @@
 
 <script lang="ts">
 	import DocRender from '$lib/DocRender/index.svelte';
-	export let sections: Map<string, MarkDownItemProps[]>;
+	import { getContext } from 'svelte';
+	import type { Writable } from 'svelte/store';
+	export let files: MarkDownItemProps[];
+	const lang = getContext<Writable<string>>('lang');
+	let sections = new Map<string, MarkDownItemProps[]>();
+	lang.subscribe((la) => {
+		sections = new Map<string, MarkDownItemProps[]>();
+		let tmp = files.filter((v) => {
+			const name = v.file;
+			const sp = name.split('.');
+			if (Array.isArray(sp) && sp.length > 1 && sp[sp.length - 2] === 'EN') {
+				console.log(la === 'en');
+				return la === 'en';
+			} else {
+				return la === 'cn';
+			}
+		});
+		tmp.forEach((v) => {
+			const stitle = v.sTitle || 'default';
+			const value = sections.get(stitle);
+			if (value) {
+				value.push(v);
+			} else {
+				sections.set(stitle, [v]);
+			}
+		});
+	});
 	let active = '';
 </script>
 

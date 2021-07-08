@@ -16,6 +16,11 @@
 <script lang="ts">
 	import Header from '$lib/Header/index.svelte';
 	import '../app.css';
+	import { setContext } from 'svelte';
+	import { writable } from 'svelte/store';
+	const lang = writable('cn');
+
+	setContext('lang', lang);
 </script>
 
 <Header />

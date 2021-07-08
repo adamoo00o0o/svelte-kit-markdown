@@ -39,7 +39,6 @@ const blockTypes = [
 export const getMarkDown = (name: string) => {
 	const root = process.cwd();
 	const docPath = path.resolve(root, 'src', name);
-
 	return fs
 		.readdirSync(docPath)
 		.filter((file) => file[0] !== '.' && path.extname(file) === '.md')

@@ -2,7 +2,8 @@
 	import type { MarkDownItemProps } from 'src/routes/docs/_api';
 	import './prism.css';
 	export let sections: Map<string, MarkDownItemProps[]>;
-	const arr = Array.from(sections.keys());
+	let arr = [];
+	$: arr = Array.from(sections.keys());
 	export let active = '';
 </script>
 
